@@ -1,0 +1,21 @@
+# dependencies and build output
+node_modules/
+client/dist/
+
+# local settings (see server/.env.example)
+.env
+server/.env
+
+# interrupted video renders
+*.part.mp4
+
+# legacy static prototype (replaced by client/ + server/)
+/index.html
+/css/
+/js/
+/README.old.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
