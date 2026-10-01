@@ -1,0 +1,16 @@
+# Netlify: build the React client as a static site.
+# Images, drawing sheets and the video are copied into client/dist/assets by vite.config.js,
+# and portfolio content falls back to data bundled into the build (no Express API needed).
+[build]
+  command = "npm run build"
+  publish = "client/dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # server/ depends on mongodb-memory-server, which otherwise downloads ~600 MB on install
+  MONGOMS_DISABLE_POSTINSTALL = "1"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
